@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BookHaven – Your Online Bookstore</title>
+  <style>
+    :root {
+      --indigo: #4B0082;
+      --sky: #3B82F6;
+      --light: #ffffff;
+      --gray: #f5f7fa;
+      --text: #1f2937;
+    }
+    * {box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif;}
+    body {background:var(--light);color:var(--text);line-height:1.6;}
+    header {
+      position:sticky;top:0;z-index:1000;
+      background:var(--light);
+      display:flex;justify-content:space-between;align-items:center;
+      padding:1rem 2rem;box-shadow:0 2px 4px rgba(0,0,0,0.08);
+    }
+    header h2 {color:var(--indigo);font-weight:700;}
+    header nav a {
+      margin-left:1.5rem;text-decoration:none;color:var(--text);font-weight:500;
+      transition:color 0.2s;
+    }
+    header nav a:hover {color:var(--sky);}
+    .btn-primary {
+      background:var(--sky);color:var(--light);
+      padding:0.6rem 1.4rem;border:none;border-radius:2rem;
+      text-decoration:none;font-weight:600;
+      transition:background 0.3s;
+    }
+    .btn-primary:hover {background:#2563eb;}
+    .hero {
+      background:linear-gradient(135deg,var(--indigo) 0%, var(--sky) 100%);
+      color:var(--light);text-align:center;padding:6rem 2rem;
+      background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1920&q=80');
+      background-size:cover;background-position:center;
+      position:relative;
+    }
+    .hero::after {
+      content:"";position:absolute;top:0;left:0;width:100%;height:100%;
+      background:rgba(75,0,130,0.6);
+    }
+    .hero-content {position:relative;z-index:1;}
+    .hero h1 {font-size:2.75rem;margin-bottom:1rem;}
+    .hero p {font-size:1.2rem;margin-bottom:2rem;}
+    section {padding:4rem 2rem;max-width:1200px;margin:auto;}
+    /* Featured books grid */
+    .book-grid {
+      display:grid;gap:2rem;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+    .book-card {
+      background:var(--gray);border-radius:1rem;
+      box-shadow:0 4px 8px rgba(0,0,0,0.08);
+      overflow:hidden;text-align:center;
+      transition:transform 0.3s;
+    }
+    .book-card img {
+      width:100%;height:260px;object-fit:cover;
+    }
+    .book-card h4 {padding:0.8rem;font-weight:600;}
+    .book-card:hover {transform:translateY(-6px);}
+    /* Features, Testimonials, Pricing */
+    .features,.pricing {display:grid;gap:2rem;}
+    .features {grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+    .feature-card {
+      background:var(--gray);padding:2rem;border-radius:1rem;
+      box-shadow:0 6px 10px rgba(0,0,0,0.05);text-align:center;
+      transition:transform 0.2s;
+    }
+    .feature-card:hover {transform:translateY(-4px);}
+    .testimonials {
+      background:var(--gray);
+      display:grid;gap:2rem;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      padding:4rem 2rem;
+    }
+    .testimonial {
+      background:var(--light);padding:2rem;border-radius:1rem;
+      box-shadow:0 6px 10px rgba(0,0,0,0.05);text-align:center;
+    }
+    .testimonial img {
+      width:60px;height:60px;border-radius:50%;margin-bottom:1rem;
+    }
+    .pricing {grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+    .price-card {
+      background:var(--light);border-radius:1rem;
+      box-shadow:0 6px 10px rgba(0,0,0,0.05);padding:2rem;text-align:center;
+      border-top:4px solid var(--sky);
+    }
+    .newsletter form {
+      display:flex;flex-direction:column;align-items:center;gap:1rem;
+      max-width:400px;margin:auto;
+    }
+    .newsletter input[type="email"] {
+      width:100%;padding:0.8rem;border:1px solid #ccc;border-radius:2rem;
+    }
+    footer {
+      background:var(--indigo);color:var(--light);
+      text-align:center;padding:1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>BookHaven</h2>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#books">Books</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#signup" class="btn-primary">Sign Up</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Your Favorite Books, One Click Away</h1>
+      <p>Discover, buy, and enjoy books online anytime, anywhere.</p>
+      <a href="#signup" class="btn-primary">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Featured Books -->
+  <section id="books">
+    <h2 style="text-align:center;margin-bottom:2rem;color:var(--indigo);">Featured Books</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://cor-cdn-static.bibliocommons.com/list_jacket_covers/live/2211712339.png?dummy=8945" alt="Book 1">
+        <h4>The Great Adventure</h4>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80" alt="Book 2">
+        <h4>Mystery of the Night</h4>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80" alt="Book 3">
+        <h4>Learning Made Easy</h4>
+      </div>
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=400&q=80" alt="Book 4">
+        <h4>Classic Tales</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="feature-card">
+      <h3>Vast Collection</h3>
+      <p>Thousands of titles across every genre imaginable.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Instant Delivery</h3>
+      <p>Get e-books immediately or fast shipping for hardcovers.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Personalized Picks</h3>
+      <p>Smart recommendations based on your reading habits.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Member Discounts</h3>
+      <p>Exclusive offers and seasonal deals for subscribers.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials">
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/60" alt="Profile">
+      <p>“BookHaven makes finding my next read effortless!”</p>
+      <strong>- Alex R.</strong>
+    </div>
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/60" alt="Profile">
+      <p>“Amazing selection and super fast delivery.”</p>
+      <strong>- Priya K.</strong>
+    </div>
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/60" alt="Profile">
+      <p>“Great prices and fantastic customer support.”</p>
+      <strong>- Michael B.</strong>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="pricing">
+    <div class="price-card">
+      <h3>Basic</h3>
+      <p>$5/month</p>
+      <a href="#" class="btn-primary">Choose</a>
+    </div>
+    <div class="price-card">
+      <h3>Standard</h3>
+      <p>$10/month</p>
+      <a href="#" class="btn-primary">Choose</a>
+    </div>
+    <div class="price-card">
+      <h3>Premium</h3>
+      <p>$20/month</p>
+      <a href="#" class="btn-primary">Choose</a>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="contact" class="newsletter">
+    <h2 style="text-align:center;margin-bottom:1rem;">Join Our Newsletter</h2>
+    <form>
+      <input type="email" placeholder="Enter your email" required />
+      <button class="btn-primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 BookHaven. All rights reserved.
+  </footer>
+
+</body>
+</html>
